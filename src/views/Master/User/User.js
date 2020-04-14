@@ -8,8 +8,6 @@ import Swal from 'sweetalert2';
 import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
 
-import API from '../../../API';
-
 class User extends Component {
   constructor(props) {
     super(props);
@@ -124,12 +122,6 @@ class User extends Component {
     });
 
     if(this.handleValidation(dataForm)){
-      const form = {
-          name: dataForm.name,
-          email: dataForm.email,
-          password: dataForm.password,
-          password_confirmation: dataForm.password_confirmation
-      }
       Swal.fire({
         title: 'Register User',
         text: "Are you sure your data is correct?",

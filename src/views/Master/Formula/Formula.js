@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
 
-import API from '../../../API';
 
 class Formula extends Component {
   constructor(props) {
@@ -97,14 +96,6 @@ class Formula extends Component {
     });
 
     if(this.handleValidation(dataForm)){
-      const form = {
-          name: dataForm.name,
-          url: dataForm.url,
-          icon: dataForm.icon,
-          title: dataForm.title,
-          parent_id: dataForm.parent_id,
-          sequence: dataForm.sequence
-      }
       Swal.fire({
         title: 'Register Formula',
         text: "Are you sure your data is correct?",
