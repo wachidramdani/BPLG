@@ -2,10 +2,26 @@ import React, { Component } from 'react';
 import { Col, Row, Card, CardHeader, CardBody, Button } from 'reactstrap';
 import imgrepeat from '../../assets/img/seamless.png';
 import '../../scss/tab.css';
+import $ from 'jquery';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      collapseMenu: "block",
+      collapseMenu2: "none",
+    }
+    this.openMenu = this.openMenu.bind(this);
+  }
+
+  openMenu = (val) => { 
+    if(val === 'back2') {
+      this.setState({ collapseMenu2: "none", collapseMenu: "block" }); 
+      $('#tab4').prop('checked',true);
+    }else if(val === 'planner'){
+      this.setState({ collapseMenu: "none", collapseMenu2: "block" }); 
+      $('#tab6').prop('checked',true);
+    }
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -18,9 +34,9 @@ class Dashboard extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col xs="12" sm="12" lg="8">
-            <Card className="card-accent-primary" style={{minHeight: "calc(100vh - 85px"}}>
+            <Card className="card-accent-primary" style={{minHeight: "calc(100vh - 85px)"}}>
               <CardBody style={styleImg}>
-                <div className="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                <div className="pcss3t pcss3t-effect-scale pcss3t-theme-1" style={{display: this.state.collapseMenu}}>
                   <input type="radio" name="pcss3t" defaultChecked  id="tab1"className="tab-content-first" />
                   <label htmlFor="tab1"><i className="icon-users2"></i>BP Log Group</label>
                   
@@ -128,7 +144,7 @@ class Dashboard extends Component {
                           <Button className="btnCardMenu"><i className="icon-hammer-wrench"></i> Maintenance / Workshop</Button>
                         </Col>
                         <Col sm="12" lg="3">
-                          <Button className="btnCardMenu"><i className="icon-presentation"></i> Planner</Button>
+                          <Button className="btnCardMenu" onClick={() => this.openMenu('planner')}><i className="icon-presentation"></i> Planner</Button>
                         </Col>
                         <Col sm="12" lg="3">
                           <Button className="btnCardMenu"><i className="icon-shield2"></i> HSE</Button>
@@ -171,6 +187,36 @@ class Dashboard extends Component {
                         </Col>
                         <Col sm="12" lg="3">
                           <Button className="btnCardMenu"><i className="icon-man-woman"></i> HR BPK</Button>
+                        </Col>
+                      </Row>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pcss3t pcss3t-effect-scale pcss3t-theme-1" style={{display: this.state.collapseMenu2}}>
+                  <input type="radio" name="pcss3t" id="tab6"className="tab-content-first" />
+                  <label htmlFor="tab6"><i className="icon-presentation"></i>Planner</label>
+                  
+                  <ul>
+                    <li className="tab-content tab-content-first typography">
+                      <div style={{display: 'flex'}}>
+                        <Button className="btn-facebook btn-brand btn-sm" onClick={() => this.openMenu('back2')} style={{height: '30px'}}>
+                          <i className="icon-arrow-left8" style={{fontSize: '12px', marginTop: '0'}}></i><span>Back</span>
+                        </Button>
+                        <h3 style={{marginTop: '-5px', marginLeft: '15px'}}><b>Planner KPA Menu</b></h3>
+                      </div>
+                      <Row>
+                        <Col sm="12" lg="3">
+                          <Button className="btnCardMenu"><i className="icon-truck"></i> Check Resources</Button>
+                        </Col>
+                        <Col sm="12" lg="3">
+                          <Button className="btnCardMenu"><i className="icon-display"></i> Truck Monitoring</Button>
+                        </Col>
+                        <Col sm="12" lg="3">
+                          <Button className="btnCardMenu"><i className="icon-location4"></i> Truck Tracking</Button>
+                        </Col>
+                        <Col sm="12" lg="3">
+                          <Button className="btnCardMenu"><i className="icon-chart"></i> Dashboard</Button>
                         </Col>
                       </Row>
                     </li>
