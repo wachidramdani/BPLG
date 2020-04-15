@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Col, Row, Card, CardHeader, CardBody, Button } from 'reactstrap';
+import { Col, Row, Card, CardHeader, CardBody, Button, Table } from 'reactstrap';
 import imgrepeat from '../../assets/img/seamless.png';
 import '../../scss/tab.css';
 import $ from 'jquery';
+import { Bar, Pie } from 'react-chartjs-2';
+import Search from '../Commons/Search';
 
-class Dashboard extends Component {
+class Dashboard_2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +32,27 @@ class Dashboard extends Component {
     const styleImg = {
       backgroundImage: `url(${imgrepeat})`
     };
+
+    const pie = {
+      datasets: [{
+        data: [2000,8000],
+        backgroundColor: ['yellow','orange']
+      }],
+      labels: ['No Issue','With Issue'],
+    }
+
+    const options = {
+      maintainAspectRatio: false,
+      responsive: false,
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10,
+        }
+      }
+    }
+
     return (
       <div className="animated fadeIn">
         <Row>
@@ -144,13 +167,14 @@ class Dashboard extends Component {
                           <Button className="btnCardMenu"><i className="icon-hammer-wrench"></i> Maintenance / Workshop</Button>
                         </Col>
                         <Col sm="12" lg="3">
-                          <Button className="btnCardMenu" onClick={() => this.props.history.push('/planner')}><i className="icon-presentation"></i> Planner</Button>
+                          <Button className="btnCardMenu" onClick={() => this.props.history.push('/report/planner')}><i className="icon-presentation"></i> Planner</Button>
+                          {/* <Button className="btnCardMenu" onClick={() => this.openMenu('planner')}><i className="icon-presentation"></i> Planner</Button> */}
                         </Col>
                         <Col sm="12" lg="3">
                           <Button className="btnCardMenu"><i className="icon-shield2"></i> HSE</Button>
                         </Col>
                         <Col sm="12" lg="3">
-                          <Button className="btnCardMenu" onClick={() => this.openMenu('planner')}><i className="icon-magic-wand"></i> Resources Management</Button>
+                          <Button className="btnCardMenu"><i className="icon-magic-wand"></i> Resources Management</Button>
                         </Col>
                         <Col sm="12" lg="3">
                           <Button className="btnCardMenu"><i className="icon-printer2"></i> Cashier</Button>
@@ -195,29 +219,84 @@ class Dashboard extends Component {
 
                 <div className="pcss3t pcss3t-effect-scale pcss3t-theme-1" style={{display: this.state.collapseMenu2}}>
                   <input type="radio" name="pcss3t" id="tab6"className="tab-content-first" />
-                  <label htmlFor="tab6"><i className="icon-magic-wand"></i>Resources Management</label>
+                  <label htmlFor="tab6"><i className="icon-presentation"></i>Planner</label>
                   
                   <ul>
                     <li className="tab-content tab-content-first typography">
                       <div style={{display: 'flex'}}>
-                        <Button className="btn-facebook btn-brand btn-sm" onClick={() => this.openMenu('back2')} style={{height: '30px'}}>
+                        {/* <Button className="btn-facebook btn-brand btn-sm" onClick={() => this.openMenu('back2')} style={{height: '30px'}}>
                           <i className="icon-arrow-left8" style={{fontSize: '12px', marginTop: '0'}}></i><span>Back</span>
-                        </Button>
-                        <h3 style={{marginTop: '-5px', marginLeft: '15px'}}><b>KPA - Resources Management</b></h3>
+                        </Button> */}
+                        {/* <h3 style={{marginTop: '-5px', marginLeft: '15px'}}><b>Planner KPA Menu</b></h3> */}
                       </div>
                       <Row>
-                        <Col sm="12" lg="3">
-                          <Button className="btnCardMenu"><i className="icon-truck"></i> Check Resources</Button>
+                        <Col sm="6">
+                          <Button className="btn-github btn-sm" style={{marginBottom: '1.0%'}}>
+                              <span>Truck Allocation</span>
+                          </Button>
+                          <br></br>
+                          <Button className="btn-twitter btn-sm" style={{marginBottom: '1.0%'}}>
+                              <span>Truck Availability</span>
+                          </Button>
+                          <br></br>
+                          <Button className="btn-facebook btn-sm" style={{marginBottom: '1.0%'}}>
+                              <span>List DO</span>
+                          </Button>
+                          <br></br>
+                          <Button className="btn-youtube btn-sm" style={{marginBottom: '1.0%'}}>
+                              <span>Truck Assignment</span>
+                          </Button>
                         </Col>
-                        <Col sm="12" lg="3">
-                          <Button className="btnCardMenu"><i className="icon-display"></i> Truck Monitoring</Button>
+                        <Col sm="6" style={{padding: '0 10px 0 5px !important'}}>
+                          <Card className="card-accent-primary">
+                              <CardBody>
+                                <div className="left-area" style={{marginLeft: '0'}}>
+                                  <Search /> 
+                                  <Button className="btn-facebook btn-sm" style={{marginBottom: '1.0%', marginLeft: '10px'}}>                     
+                                  <i className="icon-loop"></i></Button>
+                                </div>
+                                <div style={{width: '50%', float: 'right'}}>
+                                  <div style={{marginRight: '0'}}>
+                                    <Pie data={pie} height={150} width={200} options={options}/>
+                                  </div>
+                                  {/* <div style={{ fontSize: 'smaller'}}>
+                                    <span >40 Ft - Monday 20 April 2010 09.00</span>
+                                  </div>  */}
+                                </div>
+                                <br></br><br></br><br></br><br></br><br></br><br></br>
+                                <div style={{ fontSize: 'smaller'}}>
+                                  <span >40 Ft - Monday 20 April 2010 09.00</span>
+                                </div> 
+                                <div style={{width: '55%', float: 'left'}}>
+                                <Button className="btn-github btn-sm" style={{ width: '50%',padding: '6px' }}>
+                                    <span>40 Ft</span>
+                                </Button>
+                                <Button className="btn-pinterest btn-sm" style={{ width: '50%', padding: '6px' }}>
+                                    <span>20 Ft</span>
+                                </Button>
+                                  <Table size="xs" bordered dark>
+                                    <tbody>
+                                      <tr>
+                                        <th  class="w-25" scope="row">1</th>
+                                        <td>B1234 TB</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">2</th>
+                                        <td>B1234 TB</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">3</th>
+                                        <td>B1234 TB</td>
+                                      </tr>
+                                    </tbody>
+                                  </Table>
+                                </div>                             
+                              </CardBody>
+                          </Card>
                         </Col>
-                        <Col sm="12" lg="3">
-                          <Button className="btnCardMenu"><i className="icon-location4"></i> Truck Tracking</Button>
-                        </Col>
-                        <Col sm="12" lg="3">
-                          <Button className="btnCardMenu"><i className="icon-chart"></i> Dashboard</Button>
-                        </Col>
+                          <Button className="btn-facebook btn-brand btn-sm" onClick={() => this.openMenu('back2')} style={    {height: '30px'}}>
+                            <i className="icon-arrow-left8" style={{fontSize: '12px', marginTop: '0'}}></i><span>Back</span>
+                          </Button>
                       </Row>
                     </li>
                   </ul>
@@ -339,4 +418,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default Dashboard_2;

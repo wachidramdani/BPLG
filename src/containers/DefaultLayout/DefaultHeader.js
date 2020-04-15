@@ -80,7 +80,7 @@ class DefaultHeader extends Component {
           {/* <AppSidebarToggler className="d-md-down-none" display="lg" /> */}
 
           <Nav className="d-md-down-none" navbar>
-            <Button className="btnMainMenu">Main Menu <i className="icon-home2"></i></Button>
+            <Button className="btnMainMenu" onClick={() => this.props.history.push('/home')}>Main Menu <i className="icon-home2"></i></Button>
             <Button className="btnHelp">Help <i className="icon-question3"></i></Button>
             {/* <NavItem className="topBtn">
               <NavLink to="/dashboard" className="nav-link" style={{backgroundColor: 'rgb(111,190,255)', padding: '3px', border: '1px solid #555'}}>Main Menu <i className="icon-home2"></i></NavLink>

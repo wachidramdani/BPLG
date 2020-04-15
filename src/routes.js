@@ -1,17 +1,18 @@
 import React from 'react';
 
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
-const NotFound = React.lazy(() => import('./views/Pages/Page404'));
-const MasterFormula = React.lazy(() => import('./views/Master/Formula/Formula'));
-const MasterUser = React.lazy(() => import('./views/Master/User/User'));
-const MasterMenu = React.lazy(() => import('./views/Master/Menu/Menu'));
-const Daily = React.lazy(() => import('./views/Transaction/Planning/Daily'));
-const Dds = React.lazy(() => import('./views/Transaction/Planning/Dds'));
-const SampleColor = React.lazy(() => import('./views/Transaction/Planning/SampleColor'));
-const Po = React.lazy(() => import('./views/Report/Po'));
-const Performance = React.lazy(() => import('./views/Report/Performance'));
-const Monthly = React.lazy(() => import('./views/Report/Monthly'));
-const Yearly = React.lazy(() => import('./views/Report/Yearly'));
+const Planner = React.lazy(() => import('./views/Pages/Planner'));
+// const NotFound = React.lazy(() => import('./views/Pages/Page404'));
+// const MasterFormula = React.lazy(() => import('./views/Master/Formula/Formula'));
+// const MasterUser = React.lazy(() => import('./views/Master/User/User'));
+// const MasterMenu = React.lazy(() => import('./views/Master/Menu/Menu'));
+// const Daily = React.lazy(() => import('./views/Transaction/Planning/Daily'));
+// const Dds = React.lazy(() => import('./views/Transaction/Planning/Dds'));
+// const SampleColor = React.lazy(() => import('./views/Transaction/Planning/SampleColor'));
+// const Po = React.lazy(() => import('./views/Report/Po'));
+// const Performance = React.lazy(() => import('./views/Report/Performance'));
+// const Monthly = React.lazy(() => import('./views/Report/Monthly'));
+// const Yearly = React.lazy(() => import('./views/Report/Yearly'));
 
 // const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 // const Cards = React.lazy(() => import('./views/Base/Cards'));
@@ -52,21 +53,21 @@ const Yearly = React.lazy(() => import('./views/Report/Yearly'));
 const routes = [
   { path: '/', exact: true, name: 'Home'},
   { path: '/home', name: 'Dashboard', component: Dashboard },
-  { path: '/pages/404', name: '404', component: NotFound },
-  { path: '/planning', exact: true, name: 'Planning', component: Daily },
-  { path: '/planning/dp', name: 'Distribution Plan', component: Daily },
-  { path: '/planning/dds', name: 'Daily Distribution Schedule', component: Dds },
-  { path: '/planning/samplecolor', name: 'Sample Color', component: SampleColor },
-  { path: '/report', exact: true, name: 'Report', component: Po },
-  { path: '/report/po', name: 'PO Completeness', component: Po },
-  { path: '/report/performance', name: 'Distribution Performance', component: Performance },
-  { path: '/report/monthly', name: 'Monthly View', component: Monthly },
-  { path: '/report/yearly', name: 'Yearly View', component: Yearly },
-  { path: '/master', exact: true, name: 'Master Data', component: MasterFormula },
-  { path: '/master/formula', name: 'Formula', component: MasterFormula },
-  { path: '/master/user', name: 'User', component: MasterUser },
-  { path: '/master/menu', name: 'Menu', component: MasterMenu },
-  { path: '/um', exact: true, name: 'User Management', component: MasterUser },
+  { path: '/planner', name: 'Planner', component: Planner },
+  // { path: '/planning', exact: true, name: 'Planning', component: Daily },
+  // { path: '/planning/dp', name: 'Distribution Plan', component: Daily },
+  // { path: '/planning/dds', name: 'Daily Distribution Schedule', component: Dds },
+  // { path: '/planning/samplecolor', name: 'Sample Color', component: SampleColor },
+  // { path: '/report', exact: true, name: 'Report', component: Po },
+  // { path: '/report/po', name: 'PO Completeness', component: Po },
+  // { path: '/report/performance', name: 'Distribution Performance', component: Performance },
+  // { path: '/report/monthly', name: 'Monthly View', component: Monthly },
+  // { path: '/report/yearly', name: 'Yearly View', component: Yearly },
+  // { path: '/master', exact: true, name: 'Master Data', component: MasterFormula },
+  // { path: '/master/formula', name: 'Formula', component: MasterFormula },
+  // { path: '/master/user', name: 'User', component: MasterUser },
+  // { path: '/master/menu', name: 'Menu', component: MasterMenu },
+  // { path: '/um', exact: true, name: 'User Management', component: MasterUser },
 
   // { path: '/theme', exact: true, name: 'Theme', component: Colors },
   // { path: '/theme/colors', name: 'Colors', component: Colors },

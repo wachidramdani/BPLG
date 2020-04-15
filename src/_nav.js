@@ -10,6 +10,15 @@ export default {
       // },
     },
     {
+      name: 'Planner',
+      url: '/planner',
+      icon: 'icon-home2',
+      // badge: {
+      //   variant: 'info',
+      //   text: 'NEW',
+      // },
+    },
+    {
       title: true,
       name: 'Transaction',
       wrapper: {            
