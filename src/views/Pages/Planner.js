@@ -163,9 +163,7 @@ class Planner extends Component {
                         </div>
                         <div>
                             <div className="left-area" style={{marginLeft: '20px', marginTop:'20px'}}>
-                                <Button className="btn-facebook" style={{marginBottom:'10px'}}>Truck Monitoring</Button>
-                                    <br></br>
-                                    <input placeholder="Search by Vehicle"/>
+                                <input placeholder="Truck Monitoring"/>
                                 <Button className="btn-facebook btn-sm" 
                                     style={{marginTop: '-4px', marginLeft: '0', borderRadius: '0', height: '27px'}}>                     
                                     <i className="icon-search4"></i>
