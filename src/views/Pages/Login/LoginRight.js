@@ -5,9 +5,8 @@ import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
 import Swal from 'sweetalert2';
 import { Rtif } from '../../Utils/Rtif';
-import Container from '@material-ui/core/Container';
+
 import Copyright from '../../Base/Global/Copyright';
-import imgrepeat from '../../../assets/img/seamless.png';
 
 const styles = theme => ({
     root: {
@@ -22,7 +21,7 @@ const styles = theme => ({
         backgroundPosition: 'center',
     },
     paper: {
-        margin: theme.spacing(8),
+        margin: theme.spacing(8, 4),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -45,7 +44,7 @@ class Login extends Component {
         super(props);
         this.state = {
             fields: {
-                username: "",
+                email: "",
                 password: "",
                 remember_me: false
             },
@@ -61,24 +60,24 @@ class Login extends Component {
         let errors = {};
         let formIsValid = true;
 
-        //username
-        if(!fields["username"]){
+        //Email
+        if(!fields["email"]){
            formIsValid = false;
-           errors["username"] = true;
+           errors["email"] = true;
         }
 
-        if(typeof fields["username"] !== "undefined"){
-            // let lastAtPos = fields["username"].lastIndexOf('@');
-            // let lastDotPos = fields["username"].lastIndexOf('.');
+        if(typeof fields["email"] !== "undefined"){
+            // let lastAtPos = fields["email"].lastIndexOf('@');
+            // let lastDotPos = fields["email"].lastIndexOf('.');
 
-            // if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["username"].indexOf('@@') === -1 && lastDotPos > 2 && (fields["username"].length - lastDotPos) > 2)) {
+            // if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') === -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
             //   formIsValid = false;
-            //   errors["username"] = true;
+            //   errors["email"] = true;
             // }
-            // if(fields["username"] !== 'admin' && fields["username"] !== 'BP' && fields["username"] !== 'BPL' && fields["username"] !== 'BPP' && fields["username"] !== 'BPK' && fields["username"] !== 'KPA') {
-            //   formIsValid = false;
-            //   errors["username"] = true;
-            // }
+            if(fields["email"] !== 'admin' && fields["email"] !== 'BP' && fields["email"] !== 'BPL' && fields["email"] !== 'BPP' && fields["email"] !== 'BPK' && fields["email"] !== 'KPA') {
+              formIsValid = false;
+              errors["email"] = true;
+            }
         }  
         
         //Password
@@ -98,9 +97,9 @@ class Login extends Component {
             case 'remember_me':
                 fields[field] = e.target.checked;   
                 break;
-            case 'username':
+            case 'email':
                 fields[field] = e.target.value;
-                errors["username"] = false;
+                errors["email"] = false;
                 this.setState({errors: errors});   
                 break;
             case 'password':
@@ -122,13 +121,55 @@ class Login extends Component {
         if(this.handleValidation()){
             localStorage.clear();
             const form = {
-                username: this.state.fields.username,
+                email: this.state.fields.email,
                 password: this.state.fields.password,
                 remember_me: this.state.fields.remember_me
             }
             this.setState({blocking: false});
-            localStorage.setItem('token', this.state.fields.username);
+            localStorage.setItem('token', this.state.fields.email);
             this.props.history.push('/home');
+            // API.post('api/auth/login/', form)
+            // .then(res => {
+            //     if(res.status === 200){                    
+            //         Swal.fire({
+            //             title: 'Success!',
+            //             icon: 'success',
+            //             text: 'Login Success.',
+            //             showConfirmButton: false,
+            //             timer: 1500
+            //         })
+            //         .then(() => {
+            //             API.defaults.headers['Authorization'] = "Bearer "+res.data.token;
+            //             localStorage.setItem('token', res.data.token);
+            //             localStorage.setItem('data', JSON.stringify(res.data.data));                    
+            //             this.props.history.push('/dashboard');
+            //         })
+            //         // console.log(res);                    
+            //     }else{
+            //         Swal.fire({  
+            //             title: 'Warning',  
+            //             icon: 'warning',  
+            //             text: 'Your ID Unauthorized.',  
+            //         });
+            //     }
+            //     this.setState({blocking: false});
+            // }).catch((error) => {
+            //     if(error && error.response && error.response.status === 401){
+            //         Swal.fire({  
+            //             title: 'Warning',  
+            //             icon: 'warning',  
+            //             text: 'Your ID Unauthorized.',  
+            //         });
+            //     }else{
+            //         Swal.fire({  
+            //             title: 'Error',  
+            //             icon: 'error',  
+            //             text: 'Please Check Your Network Connection.',  
+            //         });
+            //     }
+            //     // console.log(error.response);            
+            //     this.setState({blocking: false});
+            // });
         }else{
             Swal.fire({  
                 title: 'Warning',  
@@ -142,42 +183,36 @@ class Login extends Component {
     render() {
         const { classes } = this.props;
         const { fields } = this.state;
-        const styleImg = {
-            backgroundImage: `url(${imgrepeat})`,
-            marginTop: '-20px',
-            paddingTop: '60px',
-            height: '100vh'          
-        };
         return (
             <BlockUi tag="div" blocking={this.state.blocking} message="Please wait">
-                <div style={styleImg}>
-                    <Container component="main" maxWidth="xs">
-                        <CssBaseline />
+                <Grid container component="main" className={classes.root}>
+                <CssBaseline />
+                    <Grid item xs={false} sm={4} md={7} className={classes.image} />
+                    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <div className={classes.paper}>
                             <img src={'../../../assets/img/logo.png'} style={{marginBottom: '15px'}}/>
-                            <Typography component="h1" variant="h5" className="welcome">
-                                Welcome
+                            <Typography component="h1" variant="h5" style={{fontSize: '1.3rem', color: '#9F3F0F'}}>
+                                Moving Forward App
                             </Typography>
-                            <Typography className="fs14">
-                                Silakan Masukan UserId Anda.
+                            <Typography className="fs12">
+                                Welcome, Please login with your credential account.
                             </Typography>
                             <form className={classes.form} onSubmit={this.handleSubmit} noValidate>
                                 <TextField
-                                    onChange={(e) => this.handleChange(e, 'username')}
-                                    value={fields["username"]}
+                                    onChange={(e) => this.handleChange(e, 'email')}
+                                    value={fields["email"]}
                                     variant="outlined"
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="username"
+                                    id="email"
                                     label="Username"
-                                    name="username"
-                                    autoComplete="username"
+                                    name="email"
+                                    autoComplete="email"
                                     autoFocus
-                                    error={this.state.errors["username"]}
-                                    style={{background: 'white'}}
+                                    error={this.state.errors["email"]}
                                 />
-                                <Rtif boolean={this.state.errors["username"]}>
+                                <Rtif boolean={this.state.errors["email"]}>
                                     <div className='error_input'><i className="icon-cancel-circle2"></i></div>
                                 </Rtif>
                                 <TextField
@@ -193,7 +228,6 @@ class Login extends Component {
                                     id="password"
                                     autoComplete="current-password"
                                     error={this.state.errors["password"]}
-                                    style={{background: 'white'}}
                                 />
                                 <Rtif boolean={this.state.errors["password"]}>
                                     <div className='error_input'><i className="icon-cancel-circle2"></i></div>
@@ -210,15 +244,15 @@ class Login extends Component {
                                     className={classes.submit}
                                     style={{backgroundColor:"rgb(74,74,255)", color:"white"}}
                                 >
-                                LOGIN <i className="icon-arrow-right8" style={{marginTop: '3px', fontSize: '12px', marginLeft: '10px'}}></i>
+                                Sign In
                                 </Button>
+                                <Box mt={5}>
+                                    <Copyright />
+                                </Box>
                             </form>
                         </div>
-                        <Box mt={8}>
-                            <Copyright />
-                        </Box>
-                    </Container>
-                </div>
+                    </Grid>
+                </Grid>
             </BlockUi>
         )
     }

@@ -9,3 +9,8 @@
 @import '~simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 @import './scss/style.scss';
+
+@font-face {
+    font-family: 'Varela';
+    src: local('Varela'), url(./assets/fonts/varela/Varela.ttf) format('truetype');
+}

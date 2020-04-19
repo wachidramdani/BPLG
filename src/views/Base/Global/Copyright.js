@@ -6,11 +6,11 @@ const Copyright = (props) => {
     return(
         <div>
             <Typography className="textCpr" variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
+                {'Copyright © '}
             <Link color="inherit" href="/">
                 Ogya
             </Link>{' '}
-            {'2020'}
+                {'2020'}
             </Typography>
         </div>
     )

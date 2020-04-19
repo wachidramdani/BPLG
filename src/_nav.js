@@ -1,17 +1,17 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
-      url: '/home',
-      icon: 'icon-home2',
-      // badge: {
-      //   variant: 'info',
-      //   text: 'NEW',
-      // },
+      title: true,
+      name: 'Home',
+      wrapper: {            
+        element: '',        
+        attributes: {}        
+      },
+      class: ''
     },
     {
-      name: 'Planner',
-      url: '/planner',
+      name: 'Main Menu',
+      url: '/home',
       icon: 'icon-home2',
       // badge: {
       //   variant: 'info',
@@ -28,51 +28,115 @@ export default {
       class: ''
     },
     {
-      name: 'Planning',
-      url: '/planning',
-      icon: 'icon-calendar',
+      name: 'HR',
+      url: '#',
+      icon: 'icon-man-woman',
+    },
+    {
+      name: 'F&A',
+      url: '#',
+      icon: 'icon-calculator2',
+    },
+    {
+      name: 'Purchasing',
+      url: '#',
+      icon: 'icon-cart4',
+    },
+    {
+      name: 'HSE',
+      url: '#',
+      icon: 'icon-shield2',
+    },
+    {
+      name: 'Dashboard',
+      url: '#',
+      icon: 'icon-chart',
+    },
+    {
+      name: 'Asset Management',
+      url: '#',
+      icon: 'icon-price-tags',
+    },
+    {
+      name: 'Planner',
+      url: '#',
+      icon: 'icon-presentation',
       children: [
         {
-          name: 'Dist. Plant',
-          url: '/planning/dp',
-          icon: 'icon-stack',
+          name: 'Check Resource',
+          url: '/planner',
+          icon: 'icon-truck',
         },
         {
-          name: 'Dist. Schedule',
-          url: '/planning/dds',
-          icon: 'icon-stack',
+          name: 'Truck Monitoring',
+          url: '#',
+          icon: 'icon-display',
+        },
+        {
+          name: 'Truck Tracking',
+          url: '#',
+          icon: 'icon-location4',
+        },
+        {
+          name: 'Dashboard',
+          url: '#',
+          icon: 'icon-chart',
         },
       ]
     },
     {
-      title: true,
-      name: 'Report',
-      icon: ''
+      name: 'Customer Center',
+      url: '#',
+      icon: 'icon-phone-wave',
     },
     {
-      name: 'PO Completeness',
-      url: '/report/po',
-      icon: 'icon-file-spreadsheet',
+      name: 'Sales & Marketing',
+      url: '#',
+      icon: 'icon-puzzle3',
     },
     {
-      name: 'Dist. Performance',
-      url: '/report/performance',
-      icon: 'icon-file-spreadsheet',
+      name: 'IT',
+      url: '#',
+      icon: 'icon-lan',
     },
     {
-      name: 'Monthly View',
-      url: '/report/monthly',
-      icon: 'icon-file-spreadsheet',
+      name: 'Resources Management',
+      url: '#',
+      icon: 'icon-magic-wand',
     },
     {
-      name: 'Yearly',
-      url: '/report/yearly',
-      icon: 'icon-file-spreadsheet',
+      name: 'Coordinator',
+      url: '#',
+      icon: 'icon-mobile3',
+    },
+    {
+      name: 'Cashier',
+      url: '#',
+      icon: 'icon-printer2',
+    },
+    {
+      name: 'Security',
+      url: '#',
+      icon: 'icon-balance',
+    },
+    {
+      name: 'Maintenance / Workshop',
+      url: '#',
+      icon: 'icon-hammer-wrench',
+    },
+    {
+      name: 'HR BPK',
+      url: '#',
+      icon: 'icon-man-woman',
     },
     {
       title: true,
       name: 'Administration',
-      icon: ''
+      wrapper: {            
+        element: '',        
+        attributes: {}        
+      },
+      class: ''
     },
     {
       name: 'Master Data',
@@ -80,19 +144,19 @@ export default {
       icon: 'icon-database',
       children: [
         {
-          name: 'Formula',
-          url: '/master/formula',
-          icon: 'icon-magic-wand',
+          name: 'Truck',
+          url: '#',
+          icon: 'icon-truck',
         },
         {
-          name: 'Main Dealer',
+          name: 'Customer',
           url: '#',
-          icon: 'icon-office',
+          icon: 'icon-store',
         },
         {
-          name: 'SKU',
+          name: 'Job Type',
           url: '#',
-          icon: 'icon-droplet',
+          icon: 'icon-stars',
         },
         {
           name: 'User',
@@ -108,7 +172,7 @@ export default {
     },
     {
       name: 'User Management',
-      url: '/um',
+      url: '#',
       icon: 'icon-users4',
       children: [
         {

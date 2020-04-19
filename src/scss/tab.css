@@ -67,6 +67,8 @@
 }
 .pcss3t .tab-content {
 	margin-top: 0px !important;
+	border-bottom: none !important;
+	border-top:none !important;
 }
 
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
@@ -199,7 +201,7 @@
 .pcss3t .typography h6 {
 	margin: 40px 0 20px 0;
 	padding: 0;
-	text-align: left;
+	text-align: right;
 	color: #333;
 }
 .pcss3t .typography h1 {
@@ -229,8 +231,7 @@
 .pcss3t .typography h6 {
 	font-size: 13px;
 	line-height: 20px;
-	font-weight: 700;
-	text-transform: uppercase;
+	font-weight: 500;
 }
 .pcss3t .typography p {
 	margin: 20px 0 0 0;
@@ -504,10 +505,13 @@
 }
 .pcss3t-theme-1 > .tab-content-first:checked ~ ul {
 	border-top-left-radius: 0;
+	border-top: 1px solid #c8ced3;
 }
 @media screen and (max-width: 767px) {
 	.pcss3t-theme-1 > label {
 		margin-right: 0;
+		margin-bottom: 0 !important;
+    	border-radius: 0 !important;
 	}
 	.pcss3t-theme-1 > input:checked + label {
 		margin-bottom: 5px;
@@ -516,7 +520,8 @@
 		border-bottom: 1px solid #c8ced3;
 	}
 	.pcss3t-theme-1 > .tab-content-first:checked ~ ul {
-		border-top-left-radius: 5px;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
 	}
 }
 
@@ -707,5 +712,5 @@
 /**/
 .pcss3t > ul,
 .pcss3t > ul > li {
-	min-height: calc(100vh - 185px);
+	min-height: calc(100vh - 220px);
 }

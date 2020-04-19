@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logo.png'
-import sygnet from '../../assets/img/brand/logo.png'
+import sygnet from '../../assets/img/brand/bplg.png'
 import Swal from 'sweetalert2';
 import 'react-block-ui/style.css';
 
@@ -72,12 +72,12 @@ class DefaultHeader extends Component {
 
     return (
         <React.Fragment>
-          {/* <AppSidebarToggler className="d-lg-none" display="md" mobile /> */}
+          <AppSidebarToggler className="d-lg-none" display="md" mobile />
           <AppNavbarBrand
             full={{ src: logo, width: 140, height: 28, alt: 'Logo' }}
-            minimized={{ src: logo, width: 140, height: 28, alt: 'Logo' }}
+            minimized={{ src: sygnet, width: 38, height: 28, alt: 'Logo' }}
           />
-          {/* <AppSidebarToggler className="d-md-down-none" display="lg" /> */}
+          <AppSidebarToggler className="d-md-down-none" display="lg" />
 
           <Nav className="d-md-down-none" navbar>
             <Button className="btnMainMenu" onClick={() => this.props.history.push('/home')}>Main Menu <i className="icon-home2"></i></Button>
@@ -91,7 +91,7 @@ class DefaultHeader extends Component {
           </Nav>
           <Nav className="ml-auto" navbar>
             <NavItem className="d-md-down-none">
-              <NavLink to="#" className="nav-link"><i className="icon-bell3"></i><Badge pill color="danger">5</Badge></NavLink>
+              <NavLink to="#" className="nav-link"><i className="icon-envelope"></i><Badge pill color="danger" style={{marginLeft: '-20px'}}>5</Badge> <span>Pesan</span></NavLink>
             </NavItem>
             <UncontrolledDropdown nav direction="down">
               <DropdownToggle nav>

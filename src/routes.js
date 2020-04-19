@@ -4,8 +4,8 @@ const Dashboard = React.lazy(() => import('./views/Dashboard'));
 const Planner = React.lazy(() => import('./views/Pages/Planner'));
 // const NotFound = React.lazy(() => import('./views/Pages/Page404'));
 // const MasterFormula = React.lazy(() => import('./views/Master/Formula/Formula'));
-// const MasterUser = React.lazy(() => import('./views/Master/User/User'));
-// const MasterMenu = React.lazy(() => import('./views/Master/Menu/Menu'));
+const MasterUser = React.lazy(() => import('./views/Master/User/User'));
+const MasterMenu = React.lazy(() => import('./views/Master/Menu/Menu'));
 // const Daily = React.lazy(() => import('./views/Transaction/Planning/Daily'));
 // const Dds = React.lazy(() => import('./views/Transaction/Planning/Dds'));
 // const SampleColor = React.lazy(() => import('./views/Transaction/Planning/SampleColor'));
@@ -52,7 +52,7 @@ const Planner = React.lazy(() => import('./views/Pages/Planner'));
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home'},
-  { path: '/home', name: 'Dashboard', component: Dashboard },
+  { path: '/home', name: 'Main Menu', component: Dashboard },
   { path: '/planner', name: 'Planner', component: Planner },
   // { path: '/planning', exact: true, name: 'Planning', component: Daily },
   // { path: '/planning/dp', name: 'Distribution Plan', component: Daily },
@@ -63,10 +63,10 @@ const routes = [
   // { path: '/report/performance', name: 'Distribution Performance', component: Performance },
   // { path: '/report/monthly', name: 'Monthly View', component: Monthly },
   // { path: '/report/yearly', name: 'Yearly View', component: Yearly },
-  // { path: '/master', exact: true, name: 'Master Data', component: MasterFormula },
+  { path: '/master', exact: true, name: 'Master Data', component: MasterUser },
   // { path: '/master/formula', name: 'Formula', component: MasterFormula },
-  // { path: '/master/user', name: 'User', component: MasterUser },
-  // { path: '/master/menu', name: 'Menu', component: MasterMenu },
+  { path: '/master/user', name: 'User', component: MasterUser },
+  { path: '/master/menu', name: 'Menu', component: MasterMenu },
   // { path: '/um', exact: true, name: 'User Management', component: MasterUser },
 
   // { path: '/theme', exact: true, name: 'Theme', component: Colors },
