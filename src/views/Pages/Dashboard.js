@@ -1,75 +1,141 @@
 import React, { Component } from 'react';
 import { Col, Row, Card, CardHeader, CardBody, Button, Modal, ModalHeader, ModalBody, UncontrolledTooltip,
   Form, FormGroup, Label, Input} from 'reactstrap';
-import imgrepeat from '../../assets/img/seamless.png';
 import '../../scss/tab.css';
-import $ from 'jquery';
-import SplitterLayout from 'react-splitter-layout';
 import 'react-splitter-layout/lib/index.css';
-import { Bar, Pie } from 'react-chartjs-2';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import '../../scss/tab2.css';
+import {Line, Pie} from 'react-chartjs-2';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        modal: false,
-        truck_no: '',
-    }
-    this.toggleModal = this.toggleModal.bind(this);
   }
-
-  toggleModal(e) {
-      e.preventDefault(); 
-      this.setState({ modal: !this.state.modal, }); 
-  }
-
   render() {
-    const styleImg = {
-    //   backgroundImage: `url(${imgrepeat})`
-        backgroundColor: '#fff',
-    };
 
-    const pie = {
-        labels: ['Emergency','Urgent', 'Important', 'Priority', 'Normal'],
-        datasets: [{
-          data: [0,1,0,3,8],
-          backgroundColor: ['red','orange','yellow','blue','green']
-        }],
-    }
-    const options = {
-        maintainAspectRatio: false,
-        responsive: false,
-        legend: {
-          position: 'right',
-          labels: {
-            boxWidth: 10,
-            fontSize: 10,
-          }
-        }
-    }
-
-    const bar = {
-      labels: ['12:00', '16:00', '20:00', '23:59', 'H+1'],
+    const data3 = {
+      labels: ['Week-2', 'Week-1', '20', '21', '22', '23'],
       datasets: [
         {
-          label: 'Estimated Truck Arrival',
-          backgroundColor: 'rgba(255,99,132,0.2)',
-          borderColor: 'rgba(255,99,132,1)',
-          borderWidth: 1,
-          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-          hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [2, 1, 5, 3, 8],
+          label: 'Total DO',
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(146,146,248,.6)',
+          borderColor: 'rgb(153,204,153)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgb(153,204,153)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgb(153,204,153)',
+          pointHoverBorderColor: 'rgba(146,146,248,.6)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [35, 40, 33, 31, 45, 25, 40]
         },
-      ],
+      ]
     };
 
-    const optionsbar = {
-      tooltips: {
-        enabled: false,
-        custom: CustomTooltips
-      },
+    const data = {
+      labels: ['Week-2', 'Week-1', '20', '21', '22', '23'],
+      datasets: [
+        {
+          label: '40 Ft',
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(74,255,160,.6)',
+          borderColor: 'rgba(74,74,255,.4)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(74,74,255,.4)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(74,74,255,.4)',
+          pointHoverBorderColor: 'rgba(74,255,160,.6)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [15, 20, 8, 14, 25, 10, 15]
+        },
+        {
+          label: '20 Ft',
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(74,255,160,.6)',
+          borderColor: 'rgb(153,204,153)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgb(153,204,153)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgb(153,204,153)',
+          pointHoverBorderColor: 'rgba(74,255,160,.6)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [20, 20, 25, 17, 20, 15, 25]
+        }
+      ]
+    };
+
+    const data2 = {
+      labels: ['Week-2', 'Week-1', '20', '21', '22', '23'],
+      datasets: [
+        {
+          label: 'On Time',
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(74,255,160,.6)',
+          borderColor: 'rgb(153,204,153)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgb(153,204,153)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgb(153,204,153)',
+          pointHoverBorderColor: 'rgba(74,255,160,.6)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [30, 32, 33, 6, 42, 15, 37]
+        },
+        {
+          label: 'Late',
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(255,72,72,.6)',
+          borderColor: 'rgba(255,35,35,.8)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(255,35,35,.8)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(255,35,35,.8)',
+          pointHoverBorderColor: 'rgba(255,72,72,.6)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [5, 8, 0, 25, 3, 10, 3]
+        }
+      ]
+    };
+
+    var options = {
       scales: {
         yAxes: [{
           ticks: {
@@ -78,7 +144,41 @@ class Dashboard extends Component {
           }    
         }]
       },
-      maintainAspectRatio: false
+      legend: {
+        position: 'top',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10,
+        }
+      }
+    };
+
+    const pie = {
+      labels: ['With Issue', 'No Issue'],
+      datasets: [{
+        data: [2,38],
+        backgroundColor: ['#F8D492','#99CC99']
+      }],
+    }
+
+    const pie2 = {
+      labels: ['Export', 'Import', 'Local'],
+      datasets: [{
+        data: [10,8,22],
+        backgroundColor: ['#4AADFF','#49FF4A', '#FF9F48']
+      }],
+    }
+
+    const optionspie = {
+      maintainAspectRatio: false,
+      responsive: false,
+      legend: {
+        position: 'top',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10,
+        }
+      }
     }
 
     return (
@@ -121,95 +221,86 @@ class Dashboard extends Component {
               </UncontrolledTooltip>
             </div>
           </Col>
-          <Col xs="12" sm="12" lg="7" style={{marginBottom: '10px'}}>
-            <Card>
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
               <CardHeader className="cardBgWhite">
-                <i className="icon-warning22"></i>Pending Job (12)
-                <div className="card-header-actions">
-                    {/*eslint-disable-next-line*/}
-                    <Button
-                    type="submit"
-                    variant="contained"
-                    className="btnReadMore"
-                    style={{backgroundColor:"rgb(74,74,255)", color:"white"}}
-                    onClick={(e) => this.toggleModal(e)}
-                    >
-                        <i className="icon-question3" style={{fontSize: '12px', marginTop: '2px'}}></i> Help
-                    </Button>
-                </div>
+                <i className="icon-clipboard5"></i>History DO
               </CardHeader>
-              <CardBody style={styleImg} className="card-body-nopad">
-                Test
+              <CardBody style={{backgroundColor: '#fff'}}>
+                <Line data={data3} options={options} />
               </CardBody>
             </Card>
           </Col>
-          <Col xs="12" sm="12" lg="5">
-            <Card className="mb10px">
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
               <CardHeader className="cardBgWhite">
-                <i className="icon-chart"></i>Chart Display
-                <div className="card-header-actions">
-                    {/*eslint-disable-next-line*/}
-                    <Button
-                    type="submit"
-                    variant="contained"
-                    className="btnReadMore"
-                    style={{backgroundColor:"rgb(74,74,255)", color:"white"}}
-                    onClick={(e) => this.toggleModal(e)}
-                    >
-                        <i className="icon-question3" style={{fontSize: '12px', marginTop: '2px'}}></i> Help
-                    </Button>
-                </div>
+                <i className="icon-truck"></i>History Pengiriman
               </CardHeader>
-              <CardBody style={styleImg} className="card-body-nopadtop">
-                <Row>
-                <Col xs="12" sm="12" lg="6">
-                  <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-                      <Pie data={pie} height={150} width={250} options={options}/>
-                  </div>
-                </Col>
-                <Col xs="12" sm="12" lg="6">
-                  <div style={{width: '100%', height: '100%'}}>
-                    <Bar data={bar} options={optionsbar} />
-                  </div>
-                </Col>
-                </Row>
+              <CardBody style={{backgroundColor: '#fff'}}>
+                <Line data={data} options={options} />
               </CardBody>
             </Card>
-            <Card className="mb10px">
+          </Col>
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
               <CardHeader className="cardBgWhite">
-                <i className="icon-truck"></i>Truck Available (40Ft : 3, 20Ft : 1)
-                <div className="card-header-actions">
-                  {/*eslint-disable-next-line*/}
-                  <Button
-                  type="submit"
-                  variant="contained"
-                  className="btnReadMore"
-                  style={{backgroundColor:"rgb(74,74,255)", color:"white"}}
-                  onClick={(e) => this.toggleModal(e)}
-                  >
-                      <i className="icon-question3" style={{fontSize: '12px', marginTop: '2px'}}></i> Help
-                  </Button>
-                </div>
+                <i className="icon-alarm"></i>Time Delivery
               </CardHeader>
-              <CardBody style={styleImg} className="card-body-nopad">
-                Test
+              <CardBody style={{backgroundColor: '#fff'}}>
+                <Line data={data2} options={options} />
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
+              <CardHeader className="cardBgWhite">
+                <i className="icon-wrench3"></i>Status Pengiriman 23-04-2020
+              </CardHeader>
+              <CardBody style={{backgroundColor: '#fff', display: 'flex', justifyContent: 'center'}}>
+                <Pie data={pie} height={190} width={250} options={optionspie}/>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
+              <CardHeader className="cardBgWhite">
+                <i className="icon-direction"></i>Tujuan Pengiriman 23-04-2020
+              </CardHeader>
+              <CardBody style={{backgroundColor: '#fff', display: 'flex', justifyContent: 'center'}}>
+                <Pie data={pie2} height={190} width={250} options={optionspie}/>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg="4">
+            <Card className="mb10px" style={{minHeight: "218px"}}>
+              <CardHeader className="cardBgWhite">
+                <i className="icon-truck"></i>Truck Status
+              </CardHeader>
+              <CardBody style={{backgroundColor: '#fff', minHeight: '230px'}} className="card-body-nopadtop">
+                <div style={{width: '100%', height: '115px', textAlign: 'center'}}>
+                  <div style={{fontSize:'64px', fontWeight: 'bold', lineHeight: '40px', paddingTop: '20px'}}>81</div>
+                  <div style={{fontWeight: 'bold', padding: '20px'}}>Total Truck</div>
+                </div>
+                <div style={{width: '100%'}}>
+                  <Row>
+                    <Col lg="4" style={{textAlign: 'center', border: '1px solid #c8ced3', height: '115px'}}>
+                      <div style={{fontSize:'64px', fontWeight: 'bold', lineHeight: '40px', paddingTop: '20px'}}>40</div>
+                      <div style={{fontWeight: 'bold', padding: '20px'}}>On Duty</div>
+                    </Col>
+                    <Col lg="4" style={{textAlign: 'center', border: '1px solid #c8ced3', height: '115px'}}>
+                      <div style={{fontSize:'64px', fontWeight: 'bold', lineHeight: '40px', paddingTop: '20px'}}>24</div>
+                      <div style={{fontWeight: 'bold', padding: '20px'}}>Available</div>
+                    </Col>
+                    <Col lg="4" style={{textAlign: 'center', border: '1px solid #c8ced3', height: '115px'}}>
+                      <div style={{fontSize:'64px', fontWeight: 'bold', lineHeight: '40px', paddingTop: '20px'}}>17</div>
+                      <div style={{fontWeight: 'bold', padding: '20px'}}>Repair</div>
+                    </Col>
+                  </Row>
+                </div>
               </CardBody>
             </Card>
           </Col>
         </Row>
-        <Modal isOpen={ this.state.modal } toggle={ this.toggleModal } className='modal-md modal-dialog modal-warning' backdrop="static">
-            <ModalHeader toggle={ this.toggleModal }><i className="icon-question3"></i> Help</ModalHeader>
-            <ModalBody>
-                <h6>Pengertian Status:</h6>
-                <p>
-                    <ul>
-                        <li><b><i>Free</i></b>, menunjukkan status truk dalam keadaan kosong, belum ada register DO</li>
-                        <li><b><i>Incomplete</i></b>, menunjukkan status truk sudah memuat DO tetapi belum complete</li>
-                        <li><b><i>Waiting Checkout</i></b>, menunjukkan status truk sudah complete dan menunggu pemberangkatan</li>
-                    </ul>
-                </p>
-            </ModalBody>
-        </Modal>
       </div>
     );
   }
