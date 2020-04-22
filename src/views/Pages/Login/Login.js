@@ -154,7 +154,7 @@ class Login extends Component {
                 <div style={styleImg}>
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
-                        <div className={classes.paper}>
+                        <div className="lgn">
                             <img src={logo} style={{marginBottom: '15px'}}/>
                             <Typography component="h1" variant="h5" className="welcome">
                                 Welcome

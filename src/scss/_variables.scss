@@ -593,3 +593,14 @@ td .btn i {
     padding: 8px;
     cursor: pointer;
 }
+
+.lgn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px !important;
+    border: 1px solid #c8ced3 !important;
+    padding: 40px !important;
+    background-color: white !important;
+    border-radius: 4px !important;
+}

@@ -134,6 +134,11 @@ class Planner extends Component {
       truckarr.splice(ind, 1); 
     }
     this.setState({datas: mainarr, datas2: truckarr, modal3: false, do: empty});
+    Swal.fire({  
+      title: 'Success',  
+      icon: 'success',
+      text: 'Buat Surat Muat Berhasil!',  
+    });
   }
 
   render() {
@@ -436,7 +441,7 @@ class Planner extends Component {
           <Col xs="12" sm="12" lg="7" style={{marginBottom: '10px'}}>
             <Card style={{minHeight: "492px"}}>
               <CardHeader className="cardBgWhite">
-                <i className="icon-warning22"></i>Pending Job ({this.state.datas.length})
+                <i className="icon-warning22"></i>Pending Job (<b>{this.state.datas.length}</b>)
                 <div className="card-header-actions">
                     {/*eslint-disable-next-line*/}
                     <Button
@@ -493,7 +498,7 @@ class Planner extends Component {
             </Card>
             <Card className="mb10px" style={{minHeight: "218px"}}>
               <CardHeader className="cardBgWhite">
-                <i className="icon-truck"></i>Truck Available (40Ft : {this.state.truck_40}, 20Ft : {this.state.truck_20})
+                <i className="icon-truck"></i>Truck Available (40Ft : <b>{this.state.truck_40}</b>, 20Ft : <b>{this.state.truck_20}</b>)
                 <div className="card-header-actions">
                   {/*eslint-disable-next-line*/}
                   <Button
