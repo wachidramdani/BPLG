@@ -684,7 +684,7 @@ class Planner extends Component {
                     <Label sm={10}><b>40 Ft</b></Label>
                   </Col>
                 </FormGroup>
-                <FormGroup style={{marginTop: '-20px'}} row>
+                <FormGroup style={{marginTop: '-15px'}} row>
                   <Label for="cust" sm={5}>Customer</Label>
                 </FormGroup>
                 <FormGroup style={{marginTop: '-20px'}} row>
@@ -700,7 +700,7 @@ class Planner extends Component {
                 </FormGroup>
                 <FormGroup style={{marginTop: '-20px'}} row>
                   <Col sm={5}>
-                    <Label sm={10}>Mattel Indonesia, PT</Label>
+                    <Label sm={12}>Mattel Indonesia, PT</Label>
                   </Col>
                   <Col sm={3}>
                     <Label sm={6}>021-12345678</Label>
@@ -709,13 +709,13 @@ class Planner extends Component {
                     <Label sm={6}>Cikarang, Indonesia</Label>
                   </Col>
                 </FormGroup>
-                <FormGroup style={{marginTop: '-10px'}} row>
+                <FormGroup style={{marginTop: '-5px'}} row>
                 <Label for="inv" sm={3}>Invoice</Label>
                   <Col sm={9}>
-                    <Label sm={10}><b>INV/20200420/XX/IV/5510</b></Label>
+                    <Label sm={10} style={{marginLeft: '-80px'}}><b>INV/20200420/XX/IV/5510</b></Label>
                   </Col>
                 </FormGroup>
-                <FormGroup style={{marginTop: '-20px'}} row>
+                <FormGroup style={{marginTop: '-15px'}} row>
                   <Col sm={5}>
                     <Label sm={10}><b>Tanggal</b></Label>
                   </Col>
