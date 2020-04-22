@@ -8,6 +8,7 @@ import { Rtif } from '../../Utils/Rtif';
 import Container from '@material-ui/core/Container';
 import Copyright from '../../Base/Global/Copyright';
 import imgrepeat from '../../../assets/img/seamless.png';
+import logo from '../../../assets/img/logo.png';
 
 const styles = theme => ({
     root: {
@@ -128,7 +129,7 @@ class Login extends Component {
             }
             this.setState({blocking: false});
             localStorage.setItem('token', this.state.fields.username);
-            this.props.history.push('/home');
+            this.props.history.push('/planner');
         }else{
             Swal.fire({  
                 title: 'Warning',  
@@ -154,7 +155,7 @@ class Login extends Component {
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
                         <div className={classes.paper}>
-                            <img src={'../../../assets/img/logo.png'} style={{marginBottom: '15px'}}/>
+                            <img src={logo} style={{marginBottom: '15px'}}/>
                             <Typography component="h1" variant="h5" className="welcome">
                                 Welcome
                             </Typography>

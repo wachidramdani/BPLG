@@ -91,7 +91,7 @@ class DefaultLayout extends Component {
           </Suspense>
         </AppHeader>
         <div className="app-body">
-          <AppSidebar fixed display="lg">
+          {/* <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
@@ -99,10 +99,10 @@ class DefaultLayout extends Component {
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
-          </AppSidebar>
+          </AppSidebar> */}
           <main className="main">
-            <AppBreadcrumb appRoutes={routes} router={router}/>
-            <Container fluid>
+            {/* <AppBreadcrumb appRoutes={routes} router={router}/> */}
+            <Container fluid style={{marginTop: '15px'}}>
               <Suspense fallback={this.loading()}>
                 <Switch>
                   {routes.map((route, idx) => {
@@ -123,7 +123,7 @@ class DefaultLayout extends Component {
                         />
                     ) : (null);
                   })}
-                  <Redirect from="/" to="/home" />
+                  <Redirect from="/" to="/planner" />
                 </Switch>
               </Suspense>
             </Container>

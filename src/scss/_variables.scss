@@ -49,6 +49,8 @@ body {
 
 .img-avatar{
     margin: 0 15px !important;
+    height: 45px !important;
+    width: 45px !important;
 }
 
 .name-bar{
@@ -122,6 +124,10 @@ legend {
 
 .card-body-nopad {
     padding: 0 !important;
+}
+
+.card-body-nopadtop {
+    padding: 0 15px !important;  
 }
 
 .btnReadMore {
@@ -555,4 +561,35 @@ td .btn i {
 
 .divText {
     margin-bottom: 3px;
+}
+
+.btnMini{
+    background-color: transparent !important;
+    border: none !important;
+    height: 40px !important;
+    padding: 0 !important;
+}
+
+.btnMini:hover, .btnMini:focus{
+    box-shadow: none !important;
+}
+
+.btnMuat {
+    width: 100%;
+    border-radius: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.btnExec {
+    width: 120px;
+    float: right;
+    border-radius: 0 !important;
+    margin-bottom: 10px !important;
+    margin-left: 10px;
+}
+
+.doType {
+    background-color: #D7FFB6;
+    padding: 8px;
+    cursor: pointer;
 }
