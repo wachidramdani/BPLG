@@ -19,7 +19,7 @@ class Help extends Component {
               style={{backgroundColor: '#fcfcfc', float: 'left', border: '1px solid #C8CED3', width:'50px', cursor: 'pointer', height: '40px', textAlign:'center'}}>
               <i className="icon-clipboard5" style={{color: '#333', fontSize: '22px', lineHeight: '45px'}}></i>
               <UncontrolledTooltip placement="bottom" target="btn1">
-                Buat Surat Muat
+                Create Manifest
               </UncontrolledTooltip>
             </div>
             <div onClick={() => this.props.history.push('/monitoring') } id="btn2"

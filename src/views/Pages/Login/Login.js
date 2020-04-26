@@ -159,8 +159,8 @@ class Login extends Component {
                             <Typography component="h1" variant="h5" className="welcome">
                                 Welcome
                             </Typography>
-                            <Typography className="fs14">
-                                Silakan Masukan UserId Anda.
+                            <Typography className="fs12b">
+                                Please login with your credential account.
                             </Typography>
                             <form className={classes.form} onSubmit={this.handleSubmit} noValidate>
                                 <TextField
