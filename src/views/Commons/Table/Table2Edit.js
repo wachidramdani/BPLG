@@ -2,6 +2,7 @@ import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import cellEditFactory from 'react-bootstrap-table2-editor';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 const Table2Edit = (props) => {
 
@@ -9,9 +10,14 @@ const Table2Edit = (props) => {
         props.action(oldValue, newValue, row, column);
     }
 
+    const pagination = paginationFactory({
+        page: 1
+    });
+
     return(
         <div>
             <BootstrapTable keyField='id' data={ props.datas } columns={ props.tableHead }
+                pagination={ pagination }
                 caption={ props.caption }
                 striped
                 hover
@@ -26,5 +32,5 @@ const Table2Edit = (props) => {
         </div>
     )
 }
-
+        
 export default Table2Edit
